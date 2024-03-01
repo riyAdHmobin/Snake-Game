@@ -5,17 +5,21 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Snake Game</title>
-	<!-- <link rel="stylesheet" href="style.css">
-	<script src="script.js"></script> -->
 	<style>
 		/* Write CSS Here */
 		body {
 			text-align: center;
+			margin: 0;
+			padding: 0;
 		}
 		.geeks {
 			font-size: 40px;
 			font-weight: bold;
 			color: green;
+		}
+		canvas {
+			background-image: url('/assets/img/bg.png'); /* Replace 'background.jpg' with your image file */
+			background-size: cover;
 		}
 	</style>
 </head>
@@ -25,9 +29,9 @@
 	<canvas id="board"></canvas>
 
 	<script>
-		let blockSize = 50;
-		let total_row = 17; //total row number
-		let total_col = 17; //total column number
+		let blockSize = 8;
+		let total_row = 100; //total row number
+		let total_col = 100; //total column number
 		let board;
 		let context;
 
@@ -65,9 +69,8 @@
 				return;
 			}
 
-			// Background of a Game
-			context.fillStyle = "green";
-			context.fillRect(0, 0, board.width, board.height);
+			// Clear the canvas
+			context.clearRect(0, 0, board.width, board.height);
 
 			// Set food color and position
 			context.fillStyle = "yellow";
